@@ -7,5 +7,6 @@ def check(body):
         raise InputError("body must be an object")
     failed = []
 
-    if body.get("template") != "python-service": failed.append("template")\n    if body.get("env") not in {"dev", "staging"}: failed.append("env")
+    if body.get("template") != "python-service": failed.append("template")
+    if body.get("env") not in {"dev", "staging"}: failed.append("env")
     return {"passed": not failed, "failed": failed, "applied": False}
