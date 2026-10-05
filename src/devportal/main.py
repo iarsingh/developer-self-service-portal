@@ -1,7 +1,9 @@
+from devportal.ops import router as ops_router
 from fastapi import FastAPI, HTTPException
 from devportal.gate import InputError, check
 
 app = FastAPI()
+app.include_router(ops_router, prefix="/v1")
 
 
 @app.get("/healthz")
